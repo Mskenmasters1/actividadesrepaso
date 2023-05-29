@@ -5,3 +5,7 @@ const descuento = (importe: number) => {
 		return importe*0.1
 	}
 }
+
+const bruto = (importe: number, descuento: number) => {
+	return importe - descuento;
+}
