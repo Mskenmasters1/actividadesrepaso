@@ -13,3 +13,6 @@ const bruto = (importe: number, descuento: number) => {
 const iva = (bruto: number) => {
 	return bruto * 0.21;
 };
+const neto = (bruto: number, iva: number) => {
+	 return bruto + iva;
+};
