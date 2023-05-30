@@ -4,7 +4,7 @@
 
 La fórmula para el número aleatorio entre 1 y 100 es:
 
-```
+```Typescript
 const entreUnoyCien = Math.floor(Math.random() * 100 + 1)
 ```
 
