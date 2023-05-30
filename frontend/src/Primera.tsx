@@ -1,5 +1,4 @@
 import { ChangeEvent, FormEvent, useEffect, useState } from 'react';
-import { IUsuario, IUsuarioResponse } from './interfaces/usuario.interface';
 
 export const EjemploActividad = () => {
   // Objetivo:
