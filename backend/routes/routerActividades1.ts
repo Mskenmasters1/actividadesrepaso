@@ -9,4 +9,3 @@ routerActividades1.get('/ejemplo/:email/:password', ejemploGet);
 routerActividades1.post('/ejemplo', ejemploPost);
 
 routerActividades1.get('/primera/:importe', primeraGet);
-routerActividades1.post('/primera', primeraPost);
