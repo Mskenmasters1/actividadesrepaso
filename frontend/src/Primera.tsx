@@ -59,7 +59,7 @@ export const EjemploActividad = () => {
   // Como el array de dependencias está vacío, esto se ejecutará la primera vez que se carga el componente.
 useEffect(() => {
   // Establecemos el título de la página
-  document.title = 'Ejeemplo - Actividad de refuerzo';
+  document.title = 'Primera - Actividad de refuerzo';
 }, []);
 
   return (
