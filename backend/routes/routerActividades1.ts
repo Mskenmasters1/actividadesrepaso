@@ -7,5 +7,5 @@ export const routerActividades1 = Router();
 routerActividades1.get('/ejemplo/:email/:password', ejemploGet);
 routerActividades1.post('/ejemplo', ejemploPost);
 
-routerPrimera.get('/primera/:importe', primeraGet);
-routerPrimera.post('/primera', primeraPost);
+routerActividades1.get('/primera/:importe', primeraGet);
+routerActividades1.post('/primera', primeraPost);
