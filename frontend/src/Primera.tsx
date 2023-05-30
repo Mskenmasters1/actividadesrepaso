@@ -1,14 +1,9 @@
 import { ChangeEvent, FormEvent, useEffect, useState } from 'react';
-import { IImporte } from './interfaces/importe.interface';
 import { IImporteResponse } from './interfaces/importe.interface';
 
 export const EjemploActividad = () => {
-  const [importe, setImporte] = useState<IImporte>({
-    importe: ''
-  });
+  const [importe, setImporte] = useState<string>('');
 
-
-  const { importe } = importe;
 
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -25,7 +20,7 @@ export const EjemploActividad = () => {
   };
 
   const onChangeImporte = (e: ChangeEvent<HTMLInputElement>) => {
-    setImporte({importe: e.target.value});
+    setImporte(e.target.value);
   };
   
   // Como el array de dependencias está vacío, esto se ejecutará la primera vez que se carga el componente.
