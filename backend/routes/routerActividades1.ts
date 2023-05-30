@@ -1,6 +1,7 @@
 import { Router } from 'express';
 
 import { ejemploGet, ejemploPost } from '../controllers/actividades1Controller';
+import { primeraGet, primeraPost } from '../controllers/primeraController';
 
 export const routerActividades1 = Router();
 
