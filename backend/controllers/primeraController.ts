@@ -5,9 +5,15 @@ import { bruto, descuento, iva, neto } from '../helpers/funciones';
 export const primeraGet = async (req: Request, res: Response) => {
   const {importe} = req.params;
   const base = parseFloat(importe);
-  const descuento: = descuento(base);
-  const bruto: = bruto(base,descuento);
-  const iva: = iva(bruto);
-  const neto: = neto(bruto,iva);
-  res.status(200).json({descuento,bruto,iva,neto});
+  const valores: IImporte = {
+	descuento: 0,
+	bruto: 0,
+	iva: 0,
+	neto: 0
+  }
+  valores.descuento = descuento(base);
+  valores.bruto = bruto(base,valores.descuento);
+  valores.iva = iva(valores.bruto);
+  valores.neto = neto(valores.bruto,valores.iva);
+  res.status(200).json(valores);
 };
