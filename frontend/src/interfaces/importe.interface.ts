@@ -1,6 +1,6 @@
 // Esto tipa lo que viene del formulario
 export interface IImporte {
-	importe: number;
+	importe: string;
 };
 
 // Esto tipa lo que devuelve el servidor
