@@ -26,3 +26,6 @@ export const invertirPalabra = (palabra: string) => {
 	return palabraAlReves;
 };
 
+export const generarNumeroAleatorio = () => {
+  return Math.floor(Math.random() * 100) + 1;
+};
