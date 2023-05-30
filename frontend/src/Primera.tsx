@@ -3,12 +3,8 @@ import { IImporte } from './interfaces/importe.interface';
 import { IImporteResponse } from './interfaces/importe.interface';
 
 export const EjemploActividad = () => {
-  // Objetivo:
-  // Tenemos un formulario que pide email y password
-  // Se envían las credenciales a un servidor node y este devuelve si la información está dentro de un array de usuarios/passwords
-
   const [importe, setImporte] = useState<IImporte>({
-    importe: 0.01
+    importe: ''
   });
 
 
@@ -22,15 +18,14 @@ export const EjemploActividad = () => {
   const fetchServer = async (): Promise<void> => {
     try {
       // get
-      const data = await fetch(`http://localhost:3000/api/actividades1/ejemplo/${importe}`);
+      const data = await fetch(`http://localhost:3000/api/actividades1/primera/${importe}`);
       const jsonRespuesta: IImporteResponse = await data.json();
-const {descuento, iva, bruto, neto} = jsonRespuesta;
     } catch (e) {
     }
   };
 
   const onChangeImporte = (e: ChangeEvent<HTMLInputElement>) => {
-    setImporte({importe: Number(e.target.value)});
+    setImporte({importe: e.target.value});
   };
   
   // Como el array de dependencias está vacío, esto se ejecutará la primera vez que se carga el componente.
