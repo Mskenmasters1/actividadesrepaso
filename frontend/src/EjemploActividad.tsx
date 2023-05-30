@@ -1,4 +1,4 @@
-import { ChangeEvent, FormEvent, useState } from 'react';
+import { ChangeEvent, FormEvent, useEffect, useState } from 'react';
 import { IUsuario, IUsuarioResponse } from './interfaces/usuario.interface';
 
 export const EjemploActividad = () => {
@@ -56,6 +56,12 @@ export const EjemploActividad = () => {
   const onChangePassword = (e: ChangeEvent<HTMLInputElement>) => {
     setUsuario({ ...usuario, password: e.target.value });
   };
+
+  // Como el array de dependencias está vacío, esto se ejecutará la primera vez que se carga el componente.
+useEffect(() => {
+  // Establecemos el título de la página
+  document.title = 'Ejeemplo - Actividad de refuerzo';
+}, []);
 
   return (
     <>
