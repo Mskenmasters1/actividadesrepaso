@@ -1,50 +1,42 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
-const JuegoAproximacion = () => {
-    const [numeroIngresado, setNumeroIngresado] = useState(0);
-    const [mensaje, setMensaje] = useState('');
-    const [ganador, setGanador] = useState('');
+export const Cuarta = () => {
+    const [saldo, setSaldo] = useState("");
+    const [numeroServidor, setNumeroServidor] = useState("");
+    const [resultado, setResultado] = useState("");
 
-    const verificarAproximacion = async () => {
-        try {
-            const response = await fetch(`/aproximacion?numero=${numeroIngresado}`);
-            const data = await response.json();
-            setMensaje(data.mensaje);
-            setGanador(data.ganador);
-        } catch (error) {
-            console.error('Error al verificar la aproximación:', error);
+    const jugarPartida = async () => {
+        const numeroAleatorio = Math.floor(Math.random() * 100) + 1;
+        const response = await fetch('http://localhost:3000/cuarta', {
+            method: 'GET',
+        });
+        const data = await response.json();
+        const numeroServidor = data.numero;
+
+        if (numeroServidor < numeroAleatorio) {
+            setResultado("Ganaste");
+        } else if (numeroServidor > numeroAleatorio) {
+            setResultado("Perdiste");
+        } else {
+            setResultado("Empate");
         }
+
+        setNumeroServidor(numeroServidor.toString());
     };
 
-    const resetearJuego = () => {
-        setNumeroIngresado(0);
-        setMensaje('');
-        setGanador('');
+    const handleChangeSaldo = (e: { target: { value: React.SetStateAction<string>; }; }) => {
+        setSaldo(e.target.value);
     };
 
     return (
         <div>
-            <h1>Juego de Aproximación al Número Aleatorio</h1>
-            {!ganador ? (
-                <div>
-                    <p>Ingresa un número:</p>
-                    <input
-                        type="number"
-                        value={numeroIngresado}
-                        onChange={(e) => setNumeroIngresado(e.target.value)}
-                        required
-                    />
-                    <button onClick={verificarAproximacion}>Verificar</button>
-                </div>
-            ) : (
-                <div>
-                    <p>{mensaje}</p>
-                    <p>Ganador: {ganador}</p>
-                    <button onClick={resetearJuego}>Reiniciar Juego</button>
-                </div>
-            )}
+            <h1>Juego contra el servidor</h1>
+            <p>Saldo: {saldo}</p>
+            <input type="text" value={saldo} onChange={handleChangeSaldo} />
+            <button onClick={jugarPartida}>Jugar partida contra el servidor</button>
+            <p>Resultado: {resultado}</p>
+            {numeroServidor && <p>Número del servidor: {numeroServidor}</p>}
         </div>
     );
 };
 
-export default JuegoAproximacion;
