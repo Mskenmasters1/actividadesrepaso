@@ -18,4 +18,4 @@ routerActividades1.get('/segunda/:palabra', segundaGet);
 routerActividades1.get('/tercera/:nombre', getPorNombre);
 routerActividades1.get('/tercera/:poblacion', getPorPoblacion);
 
-routerActividades1.get('/cuarta/:aleatorio', cuartaGet);
+routerActividades1.get('/cuarta', cuartaGet);
