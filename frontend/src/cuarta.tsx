@@ -7,8 +7,8 @@ export const Cuarta = () => {
 
     const jugarPartida = async () => {
         const numeroAleatorio = Math.floor(Math.random() * 100) + 1;
-        const response = await fetch('http://localhost:3000/cuarta', {
-            method: 'GET',
+        const response = await fetch("http://localhost:3000/api/actividades1/cuarta", {
+            method: 'GET'
         });
         const data = await response.json();
         const numeroServidor = data.numero;
@@ -24,7 +24,7 @@ export const Cuarta = () => {
         setNumeroServidor(numeroServidor.toString());
     };
 
-    const handleChangeSaldo = (e: { target: { value: React.SetStateAction<string>; }; }) => {
+    const handleChangeSaldo = (e: React.ChangeEvent<HTMLInputElement>) => {
         setSaldo(e.target.value);
     };
 
@@ -39,4 +39,3 @@ export const Cuarta = () => {
         </div>
     );
 };
-
