@@ -1,3 +1,5 @@
+import { IPersona } from "../interfaces/persona.interface";
+
 export const descuento = (importe: number) => {
 	if (importe > 1000) {
 		return importe * 0.2;
@@ -28,4 +30,12 @@ export const invertirPalabra = (palabra: string) => {
 
 export const generarNumeroAleatorio = () => {
   return Math.floor(Math.random() * 100) + 1;
+};
+
+export const encuentraNombre = (nombre: string, listado: IPersona[]) => {
+return listado.find((x) => nombre.toLowerCase() === x.nombre.toLowerCase());
+};
+
+export const encuentraPoblacion = (poblacion: string, listado: IPersona[]) => {
+	return listado.filter((x) => poblacion.toLowerCase() === x.poblacion.toLowerCase());
 };
