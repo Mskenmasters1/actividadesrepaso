@@ -17,7 +17,7 @@ const buscarPorNombre = () => {
 	
 }
 useEffect(() => {
-	document.title = "Tercera - Activvidad de refuerzo";
+	document.title = "Tercera - Actividad de refuerzo";
 }, []);
 
 return (
