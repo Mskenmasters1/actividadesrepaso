@@ -3,8 +3,7 @@ import { IImporteResponse } from './interfaces/importe.interface';
 
 export const EjemploActividad = () => {
   const [importe, setImporte] = useState<string>('');
-
-
+const [mensaje, setMensaje] = useState<string>('');
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     fetchServer();
@@ -14,8 +13,10 @@ export const EjemploActividad = () => {
     try {
       // get
       const data = await fetch(`http://localhost:3000/api/actividades1/primera/${importe}`);
-      const jsonRespuesta: IImporteResponse = await data.json();
+      const resultados: IImporteResponse = await data.json();
+      setMensaje(`Se le ha aplicado un descuento de ${resultados.descuento}; el bruto es de ${resultados.bruto}; el IVA correspondiente es de ${resultados.iva} y, por lo tanto, el neto es de ${resultados.neto}.`);
     } catch (e) {
+      setMensaje('No se han podido realizar los cálculos solicitados.');
     }
   };
 
@@ -43,7 +44,7 @@ useEffect(() => {
           Calcular
         </button>
       </form>
-
+<p role='region' aria-live='polite'>{mensaje}</p>
     </>
   );
 };

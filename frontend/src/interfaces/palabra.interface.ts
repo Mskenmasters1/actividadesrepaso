@@ -5,5 +5,5 @@ export interface IPalabra {
 
 // Esto tipa lo que devuelve el servidor
 export interface IPalabraResponse {
-	palabra: IPalabra;
+	palabraInvertida: string;
 };
