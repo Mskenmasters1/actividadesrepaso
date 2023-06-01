@@ -23,7 +23,7 @@ export const neto = (bruto: number, iva: number) => {
 export const invertirPalabra = (palabra: string) => {
 	let palabraAlReves: string = "";
 	for (let i = palabra.length - 1; i >= 0; i--) {
-		palabraAlReves += i;
+		palabraAlReves += palabra[i];
 	}
 	return palabraAlReves;
 };
