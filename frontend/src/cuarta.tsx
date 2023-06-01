@@ -5,6 +5,7 @@ export const Cuarta = () => {
     const [numeroServidor, setNumeroServidor] = useState<number>(0);
     const [numeroCliente, setNumeroCliente] = useState<number>(0);
     const [resultado, setResultado] = useState<string>("");
+    const [marcador, setMarcador] = useState<string>('');
 
     const jugarPartida = async () => {
         setNumeroCliente(Math.floor(Math.random() * 100 + 1));
@@ -15,17 +16,19 @@ export const Cuarta = () => {
             }
         );
         const data = await response.json();
-        setNumeroServidor(data.numero);
+        setNumeroServidor(data.numeroAleatorio);
         if (saldo > 0) {
-            setResultado(`Marcador: cliente ${numeroCliente}, servidor ${numeroServidor}.`);
+            setMarcador(`Marcador: cliente ${numeroCliente}, servidor ${numeroServidor}.`);
             if (numeroCliente > numeroServidor) {
-                setResultado(resultado + ' ¡ Has ganado!');
+                setResultado(marcador + ' ¡Has ganado!');
+                setSaldo(saldo + 10);
             }
             else if (numeroCliente < numeroServidor) {
-                setResultado(resultado + ' ¡Has perdido!');
+                setResultado(marcador + ' ¡Has perdido!');
+                setSaldo(saldo - 10);
             }
             else {
-                setResultado(resultado + ' ¡Empate!');
+                setResultado(marcador + ' ¡Empate!');
             }
         }
         else {

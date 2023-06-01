@@ -3,5 +3,5 @@ import { generarNumeroAleatorio } from '../helpers/funciones';
 
 export const cuartaGet = async (req: Request, res: Response) => {
   const numeroAleatorio = generarNumeroAleatorio();
-  res.status(200).json({ numero: numeroAleatorio });
+  res.status(200).json({ numeroAleatorio: numeroAleatorio });
 };
