@@ -1,24 +1,29 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
 export const Cuarta = () => {
-    const [saldo, setSaldo] = useState("");
-    const [numeroServidor, setNumeroServidor] = useState("");
-    const [resultado, setResultado] = useState("");
+    const [saldo, setSaldo] = useState('100');
+    const [numeroServidor, setNumeroServidor] = useState('');
+    const [resultado, setResultado] = useState('');
 
     const jugarPartida = async () => {
         const numeroAleatorio = Math.floor(Math.random() * 100) + 1;
-        const response = await fetch("http://localhost:3000/api/actividades1/cuarta", {
-            method: 'GET'
+        const response = await fetch('http://localhost:3000/api/actividades1/cuarta', {
+            method: 'GET',
         });
         const data = await response.json();
         const numeroServidor = data.numero;
 
         if (numeroServidor < numeroAleatorio) {
-            setResultado("Ganaste");
+            setResultado('Ganaste');
+            setSaldo((prevSaldo) => (parseInt(prevSaldo) + 10).toString());
         } else if (numeroServidor > numeroAleatorio) {
-            setResultado("Perdiste");
+            setResultado('Perdiste');
+            setSaldo((prevSaldo) => {
+                const newSaldo = parseInt(prevSaldo) - 10;
+                return newSaldo < 0 ? '0' : newSaldo.toString();
+            });
         } else {
-            setResultado("Empate");
+            setResultado('Empate');
         }
 
         setNumeroServidor(numeroServidor.toString());
