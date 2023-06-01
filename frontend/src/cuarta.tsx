@@ -5,9 +5,10 @@ export const Cuarta = () => {
     const [numeroServidor, setNumeroServidor] = useState<number>(0);
     const [numeroCliente, setNumeroCliente] = useState<number>(0);
     const [resultado, setResultado] = useState<string>("");
-    const [marcador, setMarcador] = useState<string>('');
-
+    const [marcador, setMarcador] = useState<string>("");
+    const [empezar, setEmpezar] = useState<boolean>(false);
     const jugarPartida = async () => {
+        setEmpezar(true);
         setNumeroCliente(Math.floor(Math.random() * 100 + 1));
         const response = await fetch(
             "http://localhost:3000/api/actividades1/cuarta",
@@ -17,23 +18,24 @@ export const Cuarta = () => {
         );
         const data = await response.json();
         setNumeroServidor(data.numeroAleatorio);
+
         if (saldo > 0) {
-            setMarcador(`Marcador: cliente ${numeroCliente}, servidor ${numeroServidor}.`);
+            setMarcador(
+                `Marcador: cliente ${numeroCliente}, servidor ${numeroServidor}.`
+            );
             if (numeroCliente > numeroServidor) {
-                setResultado(marcador + ' ¡Has ganado!');
+                setResultado(marcador + " ¡Has ganado!");
                 setSaldo(saldo + 10);
-            }
-            else if (numeroCliente < numeroServidor) {
-                setResultado(marcador + ' ¡Has perdido!');
+            } else if (numeroCliente < numeroServidor) {
+                setResultado(marcador + " ¡Has perdido!");
                 setSaldo(saldo - 10);
+            } else {
+                setResultado(marcador + " ¡Empate!");
             }
-            else {
-                setResultado(marcador + ' ¡Empate!');
-            }
+        } else {
+            setResultado("Ya no puedes jugar porque se te ha acabado el saldo.");
         }
-        else {
-            setResultado('Ya no puedes jugar porque se te ha acabado el saldo.');
-        };
+
     };
 
     const handleChangeSaldo = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -56,7 +58,7 @@ export const Cuarta = () => {
             <button onClick={jugarPartida}>Jugar partida contra el servidor</button>
             <h2>Resultado</h2>
             <p>Saldo actual: {saldo}</p>
-            <p>{resultado}</p>
+            {empezar && (<p>{resultado}</p>)}
         </div>
     );
 };
