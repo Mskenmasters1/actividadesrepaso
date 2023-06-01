@@ -53,7 +53,6 @@ export const Cuarta = () => {
                 onChange={handleChangeSaldo}
                 min="10"
                 step="10"
-                multiple="10"
             />
             <button onClick={jugarPartida}>Jugar partida contra el servidor</button>
             <h2>Resultado</h2>
