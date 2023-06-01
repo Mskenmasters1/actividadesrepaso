@@ -1,7 +1,7 @@
 import { ChangeEvent, FormEvent, useEffect, useState } from 'react';
 import { IImporteResponse } from './interfaces/importe.interface';
 
-export const EjemploActividad = () => {
+export const Primera = () => {
   const [importe, setImporte] = useState<string>('');
 const [mensaje, setMensaje] = useState<string>('');
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
