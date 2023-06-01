@@ -1,9 +1,24 @@
 import { ChangeEvent, useEffect, useState } from "react";
+import { ILoQueViene } from "./interfaces/loqueviene.interface";
 
 export const Tercera = () => {
 	const [nombre, setNombre] = useState<string>('');
 	const [poblacion, setPoblacion] = useState<string>('');
 
+const traer = async (ruta: string) => {
+try {
+	const data = await fetch(ruta);
+	const informacion = await data.json();
+	const status = data.status;
+const HaLlegado: ILoQueViene = {
+	status, informacion
+}
+return HaLlegado;
+}
+catch(e) {
+	
+}
+}
 const cambiaNombre = (e: ChangeEvent<HTMLInputElement>) => {
 	setNombre(e.target.value);
 };
