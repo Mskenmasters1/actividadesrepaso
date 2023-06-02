@@ -37,14 +37,14 @@ const [resultadosPoblacion, setResultadosPoblacion] = useState<ILoQueViene | IEr
 
   const buscarPorNombre = async () => {
     const datosNombre = await traer(
-      `http://localhost:3000/api/actividades1/tercera/:${nombre}`
+      `http://localhost:3000/api/actividades1/tercera/${nombre}`
     );
     setResultadosNombre(datosNombre);
   };
 
   const filtrarPorPoblacion = async () => {
     const datosPoblacion = await traer(
-      `http://localhost:3000/api/actividades1/tercera/:${poblacion}`
+      `http://localhost:3000/api/actividades1/tercera/${poblacion}`
     );
     setResultadosPoblacion(datosPoblacion);
   };
