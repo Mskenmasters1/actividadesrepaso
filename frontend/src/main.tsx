@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import { EjemploActividad } from "./EjemploActividad";
 import "bootstrap/dist/css/bootstrap.css";
 import { Cuarta } from "./cuarta";
-// import { Tercera } from "./Tercera";
+import { Tercera } from "./Tercera";
 import { Segunda } from "./Segunda";
 import { Primera } from "./Primera";
 import { IntlProvider } from "react-intl";
