@@ -4,28 +4,28 @@ import { IError, ILoQueViene } from "./interfaces/loqueviene.interface";
 export const Tercera = () => {
   const [nombre, setNombre] = useState<string>("");
   const [poblacion, setPoblacion] = useState<string>("");
-const [resultadosNombre, setResultadosNombre] = useState<ILoQueViene | IError | null>(null);
-const [resultadosPoblacion, setResultadosPoblacion] = useState<ILoQueViene | IError | null>(null);
+  const [resultadosNombre, setResultadosNombre] = useState<ILoQueViene | IError | undefined>();
+  const [resultadosPoblacion, setResultadosPoblacion] = useState<ILoQueViene | IError | undefined>();
 
-  const 
-  traer = async (ruta: string) => {
-    try {
-      const data = await fetch(ruta);
-      const informacion = await data.json();
-      const status = data.status;
-      const HaLlegado: ILoQueViene = {
-        status,
-        informacion
-      };
-      return HaLlegado;
-    } catch (e) {
-      const haLlegado: IError = {
-        status: 0,
-        msg: "No se ha podido realizar la búsqueda."
-      };
-      return haLlegado;
-    }
-  };
+  const
+    traer = async (ruta: string) => {
+      try {
+        const data = await fetch(ruta);
+        const informacion = await data.json();
+        const status = data.status;
+        const HaLlegado: ILoQueViene = {
+          status,
+          informacion
+        };
+        return HaLlegado;
+      } catch (e) {
+        const haLlegado: IError = {
+          status: 0,
+          msg: "No se ha podido realizar la búsqueda."
+        };
+        return haLlegado;
+      }
+    };
 
   const cambiaNombre = (e: ChangeEvent<HTMLInputElement>) => {
     setNombre(e.target.value);
@@ -61,16 +61,10 @@ const [resultadosPoblacion, setResultadosPoblacion] = useState<ILoQueViene | IEr
         <label htmlFor="nombre">Nombre</label>
         <input type="text" id="nombre" value={nombre} onChange={cambiaNombre} />
         <button onClick={buscarPorNombre}>Buscar por nombre</button>
-		{resultadosNombre?.status === 0 && (
-			<p>{(resultadosNombre as IError).msg}</p>
-		)}
-		{resultadosNombre?.status === 404 && (
-			<p>Esta persona no existe.</p>
-		)}
-		{resultadosNombre?.status === 200 && (
-
-			<p>{`${(resultadosNombre as ILoQueViene).informacion.nombre} vive en ${(resultadosNombre as ILoQueViene).informacion.poblacion}.`}</p>
-		)}
+        {resultadosNombre?.status === 0 && (
+          <p>{(resultadosNombre as IError).msg}</p>
+        )}
+        
       </section>
       <section role="search">
         <h2>Buscador de poblaciones</h2>
@@ -82,6 +76,12 @@ const [resultadosPoblacion, setResultadosPoblacion] = useState<ILoQueViene | IEr
           onChange={cambiaPoblacion}
         />
         <button onClick={filtrarPorPoblacion}>Filtrar por población</button>
+{resultadosPoblacion?.status === 0 && (
+  <p>No se ha podido realizar la búsqueda.</p>
+)}
+{(resultadosPoblacion as ILoQueViene).status === 200 && (resultadosPoblacion as ILoQueViene).informacion.length === 0 && (
+  <p>No hay personas de esa población.</p>
+)}
       </section>
     </>
   );
