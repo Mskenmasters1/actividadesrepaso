@@ -17,7 +17,7 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
 			<EjemploActividad />
 			<Primera />
 			<Segunda />
-			{/* <Tercera /> */}
+			<Tercera />
 			<Cuarta />
 		</IntlProvider>
 	</React.StrictMode>
