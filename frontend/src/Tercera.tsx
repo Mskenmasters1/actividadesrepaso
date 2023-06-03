@@ -82,6 +82,27 @@ export const Tercera = () => {
 {(resultadosPoblacion as ILoQueViene).status === 200 && (resultadosPoblacion as ILoQueViene).informacion.length === 0 && (
   <p>No hay personas de esa población.</p>
 )}
+{(resultadosPoblacion as ILoQueViene).status === 200 && (resultadosPoblacion as ILoQueViene).informacion.length > 0 && (
+  <>
+  <h3>{`${(resultadosPoblacion as ILoQueViene).informacion.length} resultados`}</h3>
+  <table>
+    <thead>
+      <tr>
+        <th scope="col">Nombre</th>
+        <th scope="col">Población</th>
+      </tr>
+    </thead>
+    <tbody>
+      {(resultadosPoblacion as ILoQueViene).informacion.map((x,i) => (
+        <tr key={i}>
+          <th scope="row">{x.nombre}</th>
+          <td>{x.poblacion}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+  </>
+)}
       </section>
     </>
   );
