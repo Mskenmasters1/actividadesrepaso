@@ -37,8 +37,8 @@ export const Cuarta = () => {
 	};
 
 	return (
-		<div>
-			<h1>Juego contra el servidor</h1>
+		<article>
+			<h2>Juego contra el servidor</h2>
 			<label htmlFor="saldo">Saldo</label>
 			<input
 				type="number"
@@ -50,9 +50,9 @@ export const Cuarta = () => {
 			/>
 
 			<button onClick={jugarPartida}>Jugar partida contra el servidor</button>
-			<h2>Resultado</h2>
+			<h3>Resultado</h3>
 			<p>Saldo actual: {saldo}</p>
 			{empezar && <p>{resultado}</p>}
-		</div>
+		</article>
 	);
 };
