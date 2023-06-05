@@ -14,11 +14,16 @@ const locale = navigator.language;
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
 	<React.StrictMode>
 		<IntlProvider locale={locale} >
+			<header>
+				<h1>Actividades de refuerzo</h1>
+			</header>
+			<main>
 			<EjemploActividad />
 			<Primera />
 			<Segunda />
 			<Tercera />
 			<Cuarta />
+			</main>
 		</IntlProvider>
 	</React.StrictMode>
 );
