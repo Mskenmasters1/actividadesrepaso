@@ -24,15 +24,9 @@ const [mensaje, setMensaje] = useState<string>('');
     setImporte(e.target.value);
   };
   
-  // Como el array de dependencias está vacío, esto se ejecutará la primera vez que se carga el componente.
-useEffect(() => {
-  // Establecemos el título de la página
-  document.title = 'Primera - Actividad de refuerzo';
-}, []);
-
   return (
-    <>
-      <h1>Primera actividad</h1>
+    <article>
+      <h2>Primera actividad</h2>
       <hr />
       <form onSubmit={onSubmit}>
         <div className="form-group">
@@ -45,6 +39,6 @@ useEffect(() => {
         </button>
       </form>
 <p role='region' aria-live='polite'>{mensaje}</p>
-    </>
+    </article>
   );
 };
