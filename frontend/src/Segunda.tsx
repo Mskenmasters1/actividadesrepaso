@@ -45,15 +45,9 @@ export const Segunda = () => {
     setPalabra(e.target.value);
   };
 
-  // Como el array de dependencias está vacío, esto se ejecutará la primera vez que se carga el componente.
-  useEffect(() => {
-    // Establecemos el título de la página
-    document.title = "Segunda - Actividad de refuerzo";
-  }, []);
-
   return (
-    <>
-      <h1>Actividad segunda</h1>
+    <article>
+      <h2>Actividad segunda</h2>
       <hr />
       <form onSubmit={onSubmit}>
         <div className="form-group">
@@ -87,6 +81,6 @@ export const Segunda = () => {
           </div>
         )}
       </form>
-    </>
+    </article>
   );
 };
