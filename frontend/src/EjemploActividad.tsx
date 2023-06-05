@@ -64,8 +64,8 @@ useEffect(() => {
 }, []);
 
   return (
-    <>
-      <h1>Ejemplo actividad</h1>
+    <article>
+      <h2>Ejemplo actividad</h2>
       <hr />
       <form onSubmit={onSubmit}>
         <div className="form-group">
@@ -93,6 +93,6 @@ useEffect(() => {
           Bienvenido!!!
         </div>
       )}
-    </>
+    </article>
   );
 };
