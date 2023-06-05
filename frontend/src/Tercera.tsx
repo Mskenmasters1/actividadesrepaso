@@ -35,12 +35,12 @@ export const Tercera = () => {
   };
 
   const buscarPorNombre = async () => {
-    const datosNombre = await traer(`http://localhost:3000/api/actividades1/tercera/${nombre}`);
+    const datosNombre = await traer(`http://localhost:3000/api/actividades1/tercera/persona/${nombre}`);
     setResultadosNombre(datosNombre);
   };
 
   const filtrarPorPoblacion = async () => {
-    const datosPoblacion = await traer(`http://localhost:3000/api/actividades1/tercera/${poblacion}`);
+    const datosPoblacion = await traer(`http://localhost:3000/api/actividades1/tercera/poblacion/${poblacion}`);
     setResultadosPoblacion(datosPoblacion);
   };
 

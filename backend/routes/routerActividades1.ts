@@ -15,7 +15,7 @@ routerActividades1.get('/primera/:importe', primeraGet);
 
 routerActividades1.get('/segunda/:palabra', segundaGet);
 
-routerActividades1.get('/tercera/:nombre', getPorNombre);
-routerActividades1.get('/tercera/:poblacion', getPorPoblacion);
+routerActividades1.get('/tercera/persona/:nombre', getPorNombre);
+routerActividades1.get('/tercera/poblacion/:poblacion', getPorPoblacion);
 
 routerActividades1.get('/cuarta', cuartaGet);
