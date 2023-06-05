@@ -44,22 +44,18 @@ export const Tercera = () => {
     setResultadosPoblacion(datosPoblacion);
   };
 
-  useEffect(() => {
-    document.title = 'Tercera - Actividad de refuerzo';
-  }, []);
-
   return (
-    <>
-      <h1>Tercera actividad</h1>
+    <article>
+      <h2>Tercera actividad</h2>
       <section role="search">
-        <h2>Buscador de nombres</h2>
+        <h3>Buscador de nombres</h3>
         <label htmlFor="nombre">Nombre</label>
         <input type="text" id="nombre" value={nombre} onChange={cambiaNombre} />
         <button onClick={buscarPorNombre}>Buscar por nombre</button>
         {resultadosNombre?.status === 0 && <p>{(resultadosNombre as IError).msg}</p>}
       </section>
       <section role="search">
-        <h2>Buscador de poblaciones</h2>
+        <h3>Buscador de poblaciones</h3>
         <label htmlFor="poblacion">Población</label>
         <input type="text" id="poblacion" value={poblacion} onChange={cambiaPoblacion} />
         <button onClick={filtrarPorPoblacion}>Filtrar por población</button>
@@ -71,7 +67,7 @@ export const Tercera = () => {
             {(resultadosPoblacion as ILoQueViene).status === 200 &&
               (resultadosPoblacion as ILoQueViene).informacion.length > 0 && (
                 <>
-                  <h3>{`${(resultadosPoblacion as ILoQueViene).informacion.length} resultados`}</h3>
+                  <h4>{`${(resultadosPoblacion as ILoQueViene).informacion.length} resultados`}</h4>
                   <table>
                     <thead>
                       <tr>
@@ -93,6 +89,6 @@ export const Tercera = () => {
           </div>
         )}
       </section>
-    </>
+    </article>
   );
 };
