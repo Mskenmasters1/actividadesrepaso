@@ -17,7 +17,7 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
 			<header>
 				<h1>Actividades de refuerzo</h1>
 			</header>
-			<main>
+			<main className="container mt-2">
 			<EjemploActividad />
 			<Primera />
 			<Segunda />

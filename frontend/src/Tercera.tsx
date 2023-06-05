@@ -68,7 +68,7 @@ export const Tercera = () => {
               (resultadosPoblacion as ILoQueViene).informacion.length > 0 && (
                 <>
                   <h4>{`${(resultadosPoblacion as ILoQueViene).informacion.length} resultados`}</h4>
-                  <table>
+                  <table className='table'>
                     <thead>
                       <tr>
                         <th scope="col">Nombre</th>
@@ -78,7 +78,7 @@ export const Tercera = () => {
                     <tbody>
                       {(resultadosPoblacion as ILoQueViene).informacion.map((x, i) => (
                         <tr key={i}>
-                          <th scope="row">{x.nombre}</th>
+                          <th className='table-cell' scope="row">{x.nombre}</th>
                           <td>{x.poblacion}</td>
                         </tr>
                       ))}
